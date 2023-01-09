@@ -10,7 +10,6 @@ const refs = {
   minutes: document.querySelector('span[data-minutes]'),
   seconds: document.querySelector('span[data-seconds]'),
 };
-const currentTime = Date.now();
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -19,7 +18,7 @@ const options = {
   onClose(selectedDates) {
     console.log(selectedDates[0]);
 
-    if (selectedDates[0] < currentTime) {
+    if (selectedDates[0] < Date.now()) {
       //   window.alert('Please choose a date in the future');
       Notiflix.Notify.failure('Please choose a date in the future');
     } else {
@@ -45,7 +44,7 @@ const timer = {
   start() {
     this.intervalId = setInterval(() => {
       const milliseconds = Date.parse(refs.input.value);
-      const difference = milliseconds - currentTime;
+      const difference = milliseconds - Date.now();
       const { days, hours, minutes, seconds } = convertMs(difference);
 
       refs.days.textContent = days;

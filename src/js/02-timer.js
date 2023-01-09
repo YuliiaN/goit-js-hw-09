@@ -47,6 +47,11 @@ const timer = {
       const difference = milliseconds - Date.now();
       const { days, hours, minutes, seconds } = convertMs(difference);
 
+      if (difference < 0) {
+        clearInterval(this.intervalId);
+        return;
+      }
+
       refs.days.textContent = days;
       refs.hours.textContent = hours;
       refs.minutes.textContent = minutes;

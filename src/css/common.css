@@ -65,3 +65,16 @@ button {
 .value {
   font-size: 40px;
 }
+
+.btn-submit {
+  padding: 5px;
+  background-color: antiquewhite;
+  border: none;
+  border-radius: 5px;
+}
+
+.form {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
